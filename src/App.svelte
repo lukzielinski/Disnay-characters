@@ -4,6 +4,7 @@
     import { wrap } from 'svelte-spa-router/wrap'
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
+    import List from './views/CharactersList/List.svelte'
     import HeaderBackground from './views/HeaderBackground.svelte'
     import Navbar from './views/Navbar.svelte'
 
@@ -33,6 +34,7 @@
     <div class="container">
         <Navbar />
         <HeaderBackground />
+        <List {characters} />
         <div class="main-elements">
             {#if isLoading}
                 <div class="loader">

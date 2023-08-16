@@ -20,7 +20,7 @@
         font-size: 24px;
         overflow: hidden;
         background-color: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(10px);
+        user-select: none;
     }
 
     .header-background::before {
