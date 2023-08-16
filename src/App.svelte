@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte'
     import { Character, getCharacters } from './apiRequests'
-    import Loader from './views/Loader.svelte'
+    import Loader from './elements/Loader.svelte'
 
     let characters: Character[] = []
     let isLoading = true
