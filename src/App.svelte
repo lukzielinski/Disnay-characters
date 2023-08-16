@@ -1,5 +1,28 @@
 <script lang="ts">
-    const routes = {}
+    import { onMount } from 'svelte'
+
+    type Character = {
+        _id: number
+        films: string[]
+        tvShows: string[]
+        imageUrl: string
+        name: string
+    }
+
+    let characters: Character[] = []
+
+    onMount(async () => {
+        try {
+            const response = await fetch('https://api.disneyapi.dev/character?page=1&pageSize=100')
+            const data = await response.json()
+            if (data) {
+                characters = data.data
+                console.log(characters)
+            }
+        } catch (error) {
+            console.error('Błąd pobierania danych:', error)
+        }
+    })
 </script>
 
 <svelte:head>
@@ -8,7 +31,17 @@
 </svelte:head>
 
 <main>
-    <!-- <Router {routes} /> -->
+    <h1>Lista Postaci Disneya</h1>
+    <ul>
+        {#each characters as character}
+            <li>
+                <img src={character.imageUrl} alt={character.name} />
+                <h2>{character.name}</h2>
+                <p>Filmy: {character.films.join(', ')}</p>
+                <p>Serie TV: {character.tvShows.join(', ')}</p>
+            </li>
+        {/each}
+    </ul>
 </main>
 
 <style lang="less">
