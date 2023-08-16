@@ -50,7 +50,6 @@
     .logo {
         font-size: 2rem;
         font-weight: bold;
-        color: white;
     }
 
     @keyframes fadeIn {

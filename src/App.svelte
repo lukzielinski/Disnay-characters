@@ -2,6 +2,7 @@
     import { onMount } from 'svelte'
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
+    import HeaderBackground from './views/HeaderBackground.svelte'
     import Navbar from './views/Navbar.svelte'
 
     let characters: Character[] = []
@@ -22,6 +23,7 @@
 <main>
     <div class="container">
         <Navbar />
+        <HeaderBackground />
         <div class="main-elements">
             {#if isLoading}
                 <div class="loader">
