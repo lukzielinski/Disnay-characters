@@ -2,6 +2,7 @@
     import { onMount } from 'svelte'
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
+    import Navbar from './views/Navbar.svelte'
 
     let characters: Character[] = []
     let isLoading = true
@@ -19,12 +20,35 @@
 </svelte:head>
 
 <main>
-    {#if isLoading}
-        <div class="loader">
-            <Loader />
+    <div class="container">
+        <Navbar />
+        <div class="main-elements">
+            {#if isLoading}
+                <div class="loader">
+                    <Loader />
+                </div>
+            {:else}
+                <div class="cyce">cyce</div>
+            {/if}
         </div>
-    {:else}
-        <h1>Lista Postaci Disneya</h1>
+    </div>
+</main>
+
+<!-- <div class="container">
+    
+</div> -->
+
+<!-- <style lang="less">
+    .loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+</style> -->
+
+<!-- <h1>Lista Postaci Disneya</h1>
         <ul>
             {#each characters as character}
                 <li>
@@ -34,27 +58,19 @@
                     <p>Serie TV: {character.tvShows.join(', ')}</p>
                 </li>
             {/each}
-        </ul>
-    {/if}
-</main>
+        </ul> -->
 
 <style lang="less">
-    * {
-        margin: 0;
-        padding: 0;
-    }
-    main {
-        height: calc(100vh - 5px);
-        width: 100%;
-        margin: 0 auto;
-
-        border: 1px solid red;
-    }
-    .loader {
-        border: 1px solid red;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .container {
+        box-sizing: border-box;
         height: 100%;
+        width: 100%;
+        border: 1px solid red;
+    }
+    .main-elements {
+        width: 100%;
+        max-width: 100% !important;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid red;
     }
 </style>
