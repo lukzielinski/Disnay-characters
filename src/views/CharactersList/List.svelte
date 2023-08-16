@@ -29,10 +29,10 @@
                         <div class="wrapper">
                             <img src={character.imageUrl} alt="Avatar" class="character-avatar" />
                         </div>
-                        <div class="name">
-                            {character.name}
+                        <div class="name" class:both={character.tvShows.length > 0}>
+                            <div class="character-name">{character.name}</div>
                             {#if character.tvShows.length > 0}
-                                <div class="movies-count"><i class="bi bi-tv" /></div>
+                                <div class="tv-icon"><i class="bi bi-tv" /></div>
                             {/if}
                         </div>
                         <div class="movies">{countWordsInMovieList(character.films)}</div>
@@ -80,7 +80,7 @@
     }
     .subtitles {
         display: grid;
-        grid-template-columns: 1fr 3fr 2fr 1fr;
+        grid-template-columns: 2fr 3fr 2fr 1fr;
         justify-content: center;
         align-items: center;
         font-size: 1.2rem;
@@ -94,6 +94,7 @@
         border: 1px solid red;
         width: 80px;
         height: 80px;
+        border-radius: 50%;
     }
     .row > div {
         border: 1px solid rgb(34, 255, 0);
@@ -114,5 +115,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .both {
+        display: grid !important;
+        grid-template-columns: 4fr 1fr !important;
     }
 </style>
