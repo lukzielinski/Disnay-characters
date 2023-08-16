@@ -1,11 +1,20 @@
 <script lang="ts">
     import { onMount } from 'svelte'
+    import Router from 'svelte-spa-router'
+    import { wrap } from 'svelte-spa-router/wrap'
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
     import HeaderBackground from './views/HeaderBackground.svelte'
     import Navbar from './views/Navbar.svelte'
 
     let characters: Character[] = []
+
+    const routes = {
+        '/favourites': wrap({
+            asyncComponent: () => import('./views/Favourites/Favourites.svelte'),
+        }),
+    }
+
     let isLoading = true
     onMount(async () => {
         try {
@@ -30,6 +39,7 @@
                     <Loader />
                 </div>
             {:else}
+                <Router {routes} />
                 <div class="cyce">cyce</div>
             {/if}
         </div>
