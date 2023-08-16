@@ -1,0 +1,42 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true
+    },
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "svelte.enable-ts-plugin": true,
+    "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "markdown", "svelte"],
+    "eslint.validate": ["typescript", "javascript", "svelte"],
+    // "[svelte]": {
+    //     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    // },
+    // "[typescript]": {
+    //     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    // },
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.codeActionsOnSave": [
+    "source.organizeImports", "source.formatDocument", "source.fixAll.eslint"],
+    // "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "cSpell.words": [
+        "automations",
+        "Blockly",
+        "favourite",
+        "Lidars",
+        "pico",
+        "toggledragging",
+        "unsubscriber",
+        "unsubscribers"
+    ],
+    "vs-code-prettier-eslint.prettierLast": false,
+    "svelte.plugin.svelte.compilerWarnings": {
+        "a11y-click-events-have-key-events": "ignore"
+    },
+    "turboConsoleLog.quote": "'"
+}

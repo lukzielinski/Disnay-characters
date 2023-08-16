@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "svelte.svelte-vscode",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "rvest.vs-code-prettier-eslint",
+        "rohit-gohri.format-code-action",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens",
+        "albymor.increment-selection",
+        "chakrounanas.turbo-console-log"
+    ]
+}
