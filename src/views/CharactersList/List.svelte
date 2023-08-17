@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Character } from 'src/apiRequests'
     import Tooltip from 'src/elements/Tooltip.svelte'
-    import AddFavourite from '../Favourites/Favourite.svelte'
+    import Favourite from '../Favourites/Favourite.svelte'
 
     export let characters: Character[] = []
 </script>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="movies">{character.films.length}</div>
                         <div class="favourite">
-                            <AddFavourite {character} />
+                            <Favourite {character} />
                         </div>
                     </div>
                 {/if}
