@@ -87,4 +87,16 @@
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         border: 1px solid red;
     }
+    :global(html)::-webkit-scrollbar-track {
+        background-color: rgb(25, 25, 25);
+    }
+    :global(html)::-webkit-scrollbar {
+        width: 8px;
+        background-color: rgb(142, 132, 132);
+    }
+
+    :global(html)::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(172, 172, 172, 0.38);
+    }
 </style>

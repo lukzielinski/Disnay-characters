@@ -7,7 +7,7 @@
     <div class="element">ABOUT</div>
     <div class="element">LIST</div>
     <div class="element logo"><i class="bi bi-moon-stars-fill" /></div>
-    <div class="element" on:click={() => push('/favourites')}>FAVOURITE</div>
+    <div class="element" on:click={() => push('favourites')}>FAVOURITE</div>
     <div class="element">CONTACT</div>
 </nav>
 
@@ -20,6 +20,8 @@
         height: 50px;
         padding: 20px;
         color: white;
+        z-index: 2;
+        background-color: rgb(25, 25, 25);
         font-family: 'Roboto Mono', monospace;
     }
     .element {

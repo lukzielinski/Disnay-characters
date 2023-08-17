@@ -17,9 +17,9 @@
     <div class="characters-list">
         <div class="header">Disney Characters</div>
         <div class="subtitles">
-            <div class="avatar">Avatar</div>
+            <div class="avatar" />
             <div class="name">Name</div>
-            <div class="movies">All movies</div>
+            <div class="movies">movies</div>
             <div class="favourite">Favourite</div>
         </div>
         <div class="list-row">
@@ -29,12 +29,8 @@
                         <div class="wrapper">
                             <img src={character.imageUrl} alt="Avatar" class="character-avatar" />
                         </div>
-                        <div class="name" class:both={character.tvShows.length > 0}>
-                            <div class="character-name">{character.name}</div>
-                            {#if character.tvShows.length > 0}
-                                <div class="tv-icon"><i class="bi bi-tv" /></div>
-                            {/if}
-                        </div>
+                        <div class="character-name">{character.name}</div>
+                        <div class="tv-icon"><i class="bi bi-tv" /></div>
                         <div class="movies">{countWordsInMovieList(character.films)}</div>
                         <div class="favourite"><i class="bi bi-star" /></div>
                     </div>
@@ -46,8 +42,8 @@
 
 <style lang="less">
     @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
     .characters-list-container {
-        border: 1px solid rgb(26, 255, 0);
         height: 100vh;
         color: white;
         display: flex;
@@ -55,40 +51,48 @@
         align-items: center;
         font-family: 'Lora', serif;
     }
-    .characters-list > div {
-        border: 1px solid red;
-    }
     .characters-list {
         display: grid;
         grid-template-rows: 10% 10% auto;
         width: 90%;
         height: 90%;
-        border: 1px solid rgb(26, 255, 0);
-        background-color: white;
+        border: 1px solid rgba(172, 172, 172, 0.545);
         border-radius: 20px;
+        font-family: 'Roboto Mono', monospace;
     }
     .header {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         display: flex;
-        justify-content: center;
+        justify-content: left;
         align-items: center;
-        color: black;
-    }
-    .subtitles > div {
-        border: 1px solid red;
+        padding: 20px;
+        color: rgb(255, 255, 255);
     }
     .subtitles {
         display: grid;
-        grid-template-columns: 2fr 3fr 2fr 1fr;
-        justify-content: center;
+        grid-template-columns: 1.5fr 3fr 3fr 1.5fr;
+        text-align: left;
         align-items: center;
+        text-transform: uppercase;
         font-size: 1.2rem;
-        color: black;
+        color: rgb(119, 119, 119);
     }
     .list-row {
         align-items: start;
         overflow-y: scroll;
+    }
+    .list-row::-webkit-scrollbar-track {
+        background-color: rgb(25, 25, 25);
+    }
+    .list-row::-webkit-scrollbar {
+        width: 3px;
+        background-color: rgb(142, 132, 132);
+    }
+
+    .list-row::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(172, 172, 172, 0.38);
     }
     .character-avatar {
         border: 1px solid red;
@@ -96,33 +100,25 @@
         height: 80px;
         border-radius: 50%;
     }
-    .row > div {
-        border: 1px solid rgb(34, 255, 0);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
     .row {
         border: 1px solid red;
         display: grid;
+        text-align: left;
         justify-content: center;
         align-items: center;
-        grid-template-columns: 1fr 3fr 2fr 1fr;
+        border-radius: 20px;
+        grid-template-columns: 1.2fr 2.5fr 0.5fr 2.5fr 1.5fr;
+        font-size: 1.1rem;
         margin-top: 10px;
-        color: black;
     }
     .wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .name {
+    .favourite {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    .both {
-        display: grid !important;
-        grid-template-columns: 4fr 1fr !important;
     }
 </style>
