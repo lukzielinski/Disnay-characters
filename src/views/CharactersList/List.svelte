@@ -113,7 +113,7 @@
         height: 80px;
         grid-template-columns: 1.2fr 2.5fr 0.5fr 2.5fr 1.5fr;
         font-size: 1.1rem;
-        margin-top: 10px;
+        margin: 10px 10px 10px 10px;
         transition: background-color 0.2s;
         &:hover {
             cursor: pointer;

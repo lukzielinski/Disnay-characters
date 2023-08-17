@@ -34,13 +34,13 @@
     <div class="container">
         <Navbar />
         <HeaderBackground />
-        <List {characters} />
         <div class="main-elements">
             {#if isLoading}
                 <div class="loader">
                     <Loader />
                 </div>
             {:else}
+                <List {characters} />
                 <Router {routes} />
                 <div class="cyce">cyce</div>
             {/if}

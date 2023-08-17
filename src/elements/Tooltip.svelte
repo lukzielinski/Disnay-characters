@@ -32,7 +32,7 @@
 
     .tooltip {
         width: var(--popup-width);
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.481);
         color: #fff;
         border-radius: 6px;
         padding: 5px 0;
