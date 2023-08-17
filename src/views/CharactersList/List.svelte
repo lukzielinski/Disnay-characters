@@ -4,15 +4,6 @@
     import AddFavourite from '../Favourites/Favourite.svelte'
 
     export let characters: Character[] = []
-
-    function countWordsInMovieList(movieList: string[]) {
-        const totalWordCount = movieList.reduce((total, movie) => {
-            const wordsInMovie = movie.split(/\s+/).length
-            return total + wordsInMovie
-        }, 0)
-
-        return totalWordCount
-    }
 </script>
 
 <div class="characters-list-container">
@@ -37,7 +28,7 @@
                                 <Tooltip tooltip={character.tvShows}><i class="bi bi-tv" /></Tooltip>
                             {/if}
                         </div>
-                        <div class="movies">{countWordsInMovieList(character.films)}</div>
+                        <div class="movies">{character.films.length}</div>
                         <div class="favourite">
                             <AddFavourite {character} />
                         </div>

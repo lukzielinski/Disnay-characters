@@ -2,15 +2,6 @@
     import Tooltip from 'src/elements/Tooltip.svelte'
     import { favourites } from '../../stores/favourites'
     import AddFavourite from './Favourite.svelte'
-
-    function countWordsInMovieList(movieList: string[]) {
-        const totalWordCount = movieList.reduce((total, movie) => {
-            const wordsInMovie = movie.split(/\s+/).length
-            return total + wordsInMovie
-        }, 0)
-
-        return totalWordCount
-    }
 </script>
 
 <div class="characters-list-container">
@@ -34,7 +25,7 @@
                             <Tooltip tooltip={favourite.tvShows}><i class="bi bi-tv" /></Tooltip>
                         {/if}
                     </div>
-                    <div class="movies">{countWordsInMovieList(favourite.films)}</div>
+                    <div class="movies">{favourite.films.length}</div>
                     <div class="favourite">
                         <AddFavourite character={favourite} />
                     </div>
