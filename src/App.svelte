@@ -79,13 +79,11 @@
         box-sizing: border-box;
         height: 100%;
         width: 100%;
-        border: 1px solid red;
     }
     .main-elements {
         width: 100%;
         max-width: 100% !important;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        border: 1px solid red;
     }
     :global(html)::-webkit-scrollbar-track {
         background-color: rgb(25, 25, 25);

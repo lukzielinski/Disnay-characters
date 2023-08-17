@@ -30,7 +30,11 @@
                             <img src={character.imageUrl} alt="Avatar" class="character-avatar" />
                         </div>
                         <div class="character-name">{character.name}</div>
-                        <div class="tv-icon"><i class="bi bi-tv" /></div>
+                        <div class="tv-icon">
+                            {#if character.tvShows.length > 0}
+                                <i class="bi bi-tv" />
+                            {/if}
+                        </div>
                         <div class="movies">{countWordsInMovieList(character.films)}</div>
                         <div class="favourite"><i class="bi bi-star" /></div>
                     </div>
@@ -95,21 +99,25 @@
         background-color: rgba(172, 172, 172, 0.38);
     }
     .character-avatar {
-        border: 1px solid red;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
     }
     .row {
-        border: 1px solid red;
         display: grid;
         text-align: left;
         justify-content: center;
         align-items: center;
         border-radius: 20px;
+        height: 80px;
         grid-template-columns: 1.2fr 2.5fr 0.5fr 2.5fr 1.5fr;
         font-size: 1.1rem;
         margin-top: 10px;
+        transition: background-color 0.2s;
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(36, 36, 36);
+        }
     }
     .wrapper {
         display: flex;
