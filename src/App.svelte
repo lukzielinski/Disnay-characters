@@ -5,6 +5,7 @@
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
     import List from './views/CharactersList/List.svelte'
+    import Favourites from './views/Favourites/Favourites.svelte'
     import HeaderBackground from './views/HeaderBackground.svelte'
     import Navbar from './views/Navbar.svelte'
 
@@ -41,6 +42,7 @@
                 </div>
             {:else}
                 <List {characters} />
+                <Favourites />
                 <Router {routes} />
                 <div class="cyce">cyce</div>
             {/if}

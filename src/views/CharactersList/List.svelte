@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Character } from 'src/apiRequests'
     import Tooltip from 'src/elements/Tooltip.svelte'
+    import AddFavourite from '../Favourites/Favourite.svelte'
 
     export let characters: Character[] = []
 
@@ -37,7 +38,9 @@
                             {/if}
                         </div>
                         <div class="movies">{countWordsInMovieList(character.films)}</div>
-                        <div class="favourite"><i class="bi bi-star" /></div>
+                        <div class="favourite">
+                            <AddFavourite {character} />
+                        </div>
                     </div>
                 {/if}
             {/each}
