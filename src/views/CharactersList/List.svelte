@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Character } from 'src/apiRequests'
+    import Tooltip from 'src/elements/Tooltip.svelte'
 
     export let characters: Character[] = []
 
@@ -32,7 +33,7 @@
                         <div class="character-name">{character.name}</div>
                         <div class="tv-icon">
                             {#if character.tvShows.length > 0}
-                                <i class="bi bi-tv" />
+                                <Tooltip tooltip={character.tvShows}><i class="bi bi-tv" /></Tooltip>
                             {/if}
                         </div>
                         <div class="movies">{countWordsInMovieList(character.films)}</div>
