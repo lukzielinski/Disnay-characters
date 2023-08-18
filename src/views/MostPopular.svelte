@@ -6,20 +6,45 @@
     export let characters: Character[] = []
 
     $: mostPopular = mostPopularCharacters(characters)
+
+    function assignTrophyClass(place: number): string {
+        switch (place) {
+            case 0:
+                return 'gold'
+            case 1:
+                return 'silver'
+            case 2:
+                return 'bronze'
+            default:
+                return ''
+        }
+    }
 </script>
 
 <div class="wrapper">
     <div class="mostPopular">
-        {#each mostPopular as character}
+        {#each mostPopular as character, index}
             <div class="card">
                 <div class="wrapper">
                     <img class="image" src={character.imageUrl} alt="mostPopular" />
                 </div>
                 <div class="card-content">
-                    <h2>{character.name} <Favourite {character} /></h2>
-                    <p>
-                        Total movies: {character.films.length}
-                    </p>
+                    <div class="header">
+                        <div class="name">
+                            {character.name}
+                        </div>
+                        <div class="icon">
+                            <Favourite {character} />
+                        </div>
+                    </div>
+                    <div class="description">
+                        <div class="total-movies">
+                            Total movies: {character.films.length}
+                        </div>
+                        <div class="tropheum {assignTrophyClass(index)}">
+                            <i class="bi bi-trophy" />
+                        </div>
+                    </div>
                 </div>
             </div>
         {/each}
@@ -27,29 +52,19 @@
 </div>
 
 <style lang="less">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
     .wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .mostPopular {
-        border: 1px solid red;
         display: flex;
         padding: 10%;
-        flex-wrap: wrap; /* Zawijanie do nowej linii przy braku miejsca */
-        justify-content: space-around; /* Rozłożenie kart na dostępnym miejscu */
-        gap: 90px; /* Odstęp między kartami */
-    }
-    main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 50px;
-        font-family: 'Roboto', sans-serif;
-    }
-    .card > div {
-        border: 1px solid red;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 90px;
+        font-family: 'Roboto Mono', monospace;
     }
     .image {
         width: 60%;
@@ -65,54 +80,55 @@
         cursor: pointer;
         position: relative;
         color: rgb(240, 240, 240);
-        box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(172, 172, 172, 0.545);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-        h2 {
+        .header {
             position: absolute;
-            inset: auto auto 30px 30px;
+            width: 100%;
+            display: grid;
+            font-size: 1.2rem;
+            grid-template-columns: 80% 20%;
+            inset: auto auto 15%;
             margin: 0;
             transition: inset 0.3s 0.3s ease-out;
-            font-family: 'Roboto Condensed', sans-serif;
             font-weight: normal;
             text-transform: uppercase;
         }
 
-        p,
-        a {
+        .description {
             position: absolute;
             opacity: 0;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 80% 20%;
             max-width: 80%;
             transition: opacity 0.3s ease-out;
         }
 
-        p {
-            inset: auto auto 80px 30px;
+        .description {
+            inset: auto auto 12% 30px;
         }
 
-        a {
-            inset: auto auto 40px 30px;
-            color: inherit;
-            text-decoration: none;
-        }
-
-        &:hover h2 {
-            inset: auto auto 220px 30px;
+        &:hover .header {
+            inset: auto auto 20%;
             transition: inset 0.3s ease-out;
         }
 
-        &:hover p,
-        &:hover a {
+        &:hover .description {
             opacity: 1;
             transition: opacity 0.5s 0.1s ease-in;
         }
-
-        &:hover img {
-            transition: opacity 0.3s ease-in;
-            opacity: 1;
-        }
+    }
+    .gold {
+        color: gold;
     }
 
-    .material-symbols-outlined {
-        vertical-align: middle;
+    .silver {
+        color: silver;
+    }
+
+    .bronze {
+        color: #cd7f32;
     }
 </style>
