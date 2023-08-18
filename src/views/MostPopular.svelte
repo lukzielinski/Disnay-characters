@@ -8,11 +8,13 @@
     $: mostPopular = mostPopularCharacters(characters)
 </script>
 
-<div class="mostPopular">
-    {#each mostPopular as character}
-        <main>
+<div class="wrapper">
+    <div class="mostPopular">
+        {#each mostPopular as character}
             <div class="card">
-                <img src={character.imageUrl} alt="mostPopular" />
+                <div class="wrapper">
+                    <img class="image" src={character.imageUrl} alt="mostPopular" />
+                </div>
                 <div class="card-content">
                     <h2>{character.name} <Favourite {character} /></h2>
                     <p>
@@ -20,18 +22,23 @@
                     </p>
                 </div>
             </div>
-        </main>
-    {/each}
+        {/each}
+    </div>
 </div>
 
 <style lang="less">
-    .mostPopular {
-        height: 100vh;
-        color: white;
+    .wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'Lora', serif;
+    }
+    .mostPopular {
+        border: 1px solid red;
+        display: flex;
+        padding: 10%;
+        flex-wrap: wrap; /* Zawijanie do nowej linii przy braku miejsca */
+        justify-content: space-around; /* Rozłożenie kart na dostępnym miejscu */
+        gap: 90px; /* Odstęp między kartami */
     }
     main {
         display: flex;
@@ -41,27 +48,24 @@
         padding: 50px;
         font-family: 'Roboto', sans-serif;
     }
-
+    .card > div {
+        border: 1px solid red;
+    }
+    .image {
+        width: 60%;
+        height: 60%;
+        border-radius: 50%;
+    }
     .card {
-        width: 24rem;
-        height: 36rem;
-        border-radius: 10px;
-        overflow: hidden;
+        width: 20rem;
+        height: 26rem;
+        border-radius: 20px;
+        display: grid;
+        grid-template-rows: 2fr 1fr;
         cursor: pointer;
         position: relative;
         color: rgb(240, 240, 240);
         box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
-
-        img {
-            position: absolute;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            opacity: 0.9;
-            transition: opacity 0.2s ease-out;
-        }
 
         h2 {
             position: absolute;
