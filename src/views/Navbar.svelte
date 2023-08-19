@@ -5,7 +5,7 @@
 
 <nav class="navbar">
     <div class="element">ABOUT</div>
-    <div class="element">LIST</div>
+    <div class="element" on:click={() => push('/list')}>LIST</div>
     <div class="element logo"><i class="bi bi-moon-stars-fill" /></div>
     <div class="element" on:click={() => push('/favourites')}>FAVOURITE</div>
     <div class="element">CONTACT</div>

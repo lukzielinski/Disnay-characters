@@ -7,77 +7,95 @@
 
     $: mostPopular = mostPopularCharacters(characters)
 
-    function assignTrophyClass(place: number): string {
+    function assignTrophyColor(place: number): string {
         switch (place) {
             case 0:
-                return 'gold'
+                return 'color:gold'
             case 1:
-                return 'silver'
+                return 'color:silver'
             case 2:
-                return 'bronze'
+                return 'color:bronze'
             default:
                 return ''
         }
     }
 </script>
 
-<div class="wrapper">
-    <div class="mostPopular">
-        {#each mostPopular as character, index}
-            <div class="card">
-                <div class="wrapper">
-                    <img class="image" src={character.imageUrl} alt="mostPopular" />
-                </div>
-                <div class="card-content">
-                    <div class="header">
-                        <div class="name">
+<div class="most-popular-wrapper">
+    <div class="most-popular-container">
+        <div class="most-popular-header">
+            <h1>Most popular characters</h1>
+        </div>
+        <div class="cards-container">
+            {#each mostPopular as character, index}
+                <div class="card">
+                    <div class="image-container">
+                        <img class="image" src={character.imageUrl} alt="mostPopular" />
+                    </div>
+                    <div class="card-content">
+                        <div class="header">
                             {character.name}
-                        </div>
-                        <div class="icon">
                             <Favourite {character} />
                         </div>
-                    </div>
-                    <div class="description">
-                        <div class="total-movies">
-                            Total movies: {character.films.length}
-                        </div>
-                        <div class="tropheum {assignTrophyClass(index)}">
-                            <i class="bi bi-trophy" />
+                        <div class="description">
+                            <div class="total-movies">
+                                Total movies: {character.films.length}
+                            </div>
+                            <div style={assignTrophyColor(index)}>
+                                <i class="bi bi-trophy" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {/each}
+            {/each}
+        </div>
     </div>
 </div>
 
 <style lang="less">
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
-    .wrapper {
+
+    .flex-center() {
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid red;
     }
-    .mostPopular {
+    .most-popular-wrapper {
+        .flex-center();
+    }
+    .most-popular-container {
         width: 90%;
         height: 90%;
-        border: 1px solid green;
+        border-radius: 20px;
+        margin: 40px 0px 40px 0px;
+        font-family: 'Roboto Mono', monospace;
+    }
+    .cards-container {
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        gap: 90px;
-        font-family: 'Roboto Mono', monospace;
-        width: 90%;
-        height: 90%;
-        border: 1px solid rgba(172, 172, 172, 0.545);
         border-radius: 20px;
-        font-family: 'Roboto Mono', monospace;
+    }
+    .most-popular-header {
+        font-size: 0.7rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding: 20px;
+        color: rgb(255, 255, 255);
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+    .image-container {
+        .flex-center();
     }
     .image {
         width: 60%;
         height: 60%;
         border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(41, 41, 41) 0px 0px 0px 3px;
     }
     .card {
         width: 20rem;
@@ -88,15 +106,27 @@
         cursor: pointer;
         position: relative;
         color: rgb(240, 240, 240);
+        margin: 30px;
         border: 1px solid rgba(172, 172, 172, 0.545);
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        animation: fadeIn 1s ease-in-out forwards;
+
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .card:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
 
         .header {
             position: absolute;
             width: 100%;
             display: grid;
             font-size: 1.2rem;
-            grid-template-columns: 80% 20%;
+            grid-template-columns: 70% 30%;
             inset: auto auto 15%;
             margin: 0;
             transition: inset 0.3s 0.3s ease-out;
@@ -109,13 +139,12 @@
             opacity: 0;
             width: 100%;
             display: grid;
-            grid-template-columns: 80% 20%;
-            max-width: 80%;
+            grid-template-columns: 70% 30%;
             transition: opacity 0.3s ease-out;
         }
 
         .description {
-            inset: auto auto 12% 30px;
+            inset: auto auto 12% 0px;
         }
 
         &:hover .header {
@@ -128,15 +157,14 @@
             transition: opacity 0.5s 0.1s ease-in;
         }
     }
-    .gold {
-        color: gold;
-    }
-
-    .silver {
-        color: silver;
-    }
-
-    .bronze {
-        color: #cd7f32;
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>

@@ -15,6 +15,9 @@
         '/favourites': wrap({
             asyncComponent: () => import('./views/Favourites/Favourites.svelte'),
         }),
+        '/list': wrap({
+            asyncComponent: () => import('./views/CharactersList/List.svelte'),
+        }),
     }
 
     let isLoading = true
@@ -41,40 +44,13 @@
                     <Loader />
                 </div>
             {:else}
+                <MostPopular {characters} />
                 <List {characters} />
                 <Favourites />
-                <MostPopular {characters} />
-                <!-- <Router {routes} /> -->
             {/if}
         </div>
     </div>
 </main>
-
-<!-- <div class="container">
-    
-</div> -->
-
-<!-- <style lang="less">
-    .loader {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-    }
-</style> -->
-
-<!-- <h1>Lista Postaci Disneya</h1>
-        <ul>
-            {#each characters as character}
-                <li>
-                    <img src={character.imageUrl} alt={character.name} />
-                    <h2>{character.name}</h2>
-                    <p>Filmy: {character.films.join(', ')}</p>
-                    <p>Serie TV: {character.tvShows.join(', ')}</p>
-                </li>
-            {/each}
-        </ul> -->
 
 <style lang="less">
     .container {
