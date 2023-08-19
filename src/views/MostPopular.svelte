@@ -57,13 +57,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 1px solid red;
     }
     .mostPopular {
+        width: 90%;
+        height: 90%;
+        border: 1px solid green;
         display: flex;
-        padding: 10%;
         flex-wrap: wrap;
         justify-content: space-around;
         gap: 90px;
+        font-family: 'Roboto Mono', monospace;
+        width: 90%;
+        height: 90%;
+        border: 1px solid rgba(172, 172, 172, 0.545);
+        border-radius: 20px;
         font-family: 'Roboto Mono', monospace;
     }
     .image {
