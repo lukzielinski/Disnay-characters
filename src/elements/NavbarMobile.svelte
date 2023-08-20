@@ -1,30 +1,21 @@
 <script lang="ts">
     import 'bootstrap-icons/font/bootstrap-icons.css'
     import { push } from 'svelte-spa-router'
-    import NavbarMobile from './NavbarMobile.svelte'
-
-    $: windowWidth = window.innerWidth
-
-    window.addEventListener('resize', () => {
-        windowWidth = window.innerWidth
-    })
 </script>
 
-{#if windowWidth > 900}
-    <nav class="navbar">
+<nav class="navbar-mobile">
+    <div class="elements-list">
         <div class="element" on:click={() => push('/mostPopular')}>Most Popular</div>
         <div class="element" on:click={() => push('/list')}>Character List</div>
         <div class="element logo"><i class="bi bi-moon-stars-fill" /></div>
         <div class="element" on:click={() => push('/favourites')}>Your Favourite</div>
         <div class="element" on:click={() => push('/contact')}>Contact</div>
-    </nav>
-{:else}
-    <NavbarMobile />
-{/if}
+    </div>
+</nav>
 
 <style lang="less">
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
-    .navbar {
+    .navbar-mobile {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         align-items: center;
