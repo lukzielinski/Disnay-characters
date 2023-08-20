@@ -111,16 +111,6 @@
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         animation: fadeIn 1s ease-in-out forwards;
 
-        .card:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-        .card:nth-child(2) {
-            animation-delay: 0.3s;
-        }
-        .card:nth-child(3) {
-            animation-delay: 0.5s;
-        }
-
         .header {
             position: absolute;
             width: 100%;

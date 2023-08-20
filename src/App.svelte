@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte'
+    import Router from 'svelte-spa-router'
     import { wrap } from 'svelte-spa-router/wrap'
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
@@ -44,9 +45,12 @@
                     <Loader />
                 </div>
             {:else}
-                <MostPopular {characters} />
-                <List {characters} />
-                <Favourites />
+                <Router>
+                    <MostPopular {characters} path="/" />
+                    <List {characters} path="/list" />
+                    <Favourites path="/favourites" />
+                    <!-- Dodaj inne komponenty do innych ścieżek -->
+                </Router>
             {/if}
         </div>
     </div>
