@@ -5,10 +5,10 @@
 
 <nav class="navbar">
     <div class="element" on:click={() => push('/mostPopular')}>Most Popular</div>
-    <div class="element" on:click={() => push('/list')}>LIST</div>
+    <div class="element" on:click={() => push('/list')}>Character List</div>
     <div class="element logo"><i class="bi bi-moon-stars-fill" /></div>
-    <div class="element" on:click={() => push('/favourites')}>FAVOURITE</div>
-    <div class="element" on:click={() => push('/contact')}>CONTACT</div>
+    <div class="element" on:click={() => push('/favourites')}>Your Favourite</div>
+    <div class="element" on:click={() => push('/contact')}>Contact</div>
 </nav>
 
 <style lang="less">

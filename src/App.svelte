@@ -1,7 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte'
     import { location } from 'svelte-spa-router'
-    import { wrap } from 'svelte-spa-router/wrap'
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
     import List from './views/CharactersList/List.svelte'
@@ -12,13 +11,9 @@
     import Navbar from './views/Navbar.svelte'
 
     let characters: Character[] = []
+
     $: currentPath = $location
 
-    const routes = {
-        '/favourites': wrap({
-            asyncComponent: () => import('./views/Favourites/Favourites.svelte'),
-        }),
-    }
     let isLoading = true
 
     onMount(async () => {
@@ -42,15 +37,15 @@
                 <div class="loader">
                     <Loader />
                 </div>
-            {:else if currentPath === '/mostPopular'}
-                <HeaderBackground />
-                <MostPopular {characters} />
+            {:else if currentPath === '/contact'}
+                <Contact />
             {:else if currentPath === '/favourites'}
                 <Favourites />
             {:else if currentPath === '/list'}
                 <List {characters} />
             {:else}
-                <Contact />
+                <HeaderBackground />
+                <MostPopular {characters} />
             {/if}
         </div>
     </div>
