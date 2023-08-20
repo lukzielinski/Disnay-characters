@@ -1,40 +1,19 @@
 <script lang="ts">
     import { Character } from 'src/apiRequests'
-    import Tooltip from 'src/elements/Tooltip.svelte'
-    import Favourite from '../Favourites/Favourite.svelte'
+    import CharacterRow from './CharacterRow.svelte'
+    import ListHeaders from './ListHeaders.svelte'
 
     export let characters: Character[] = []
-
-    $: console.log('cyce, characters: ', characters)
 </script>
 
 <div class="characters-list-container">
     <div class="characters-list">
         <div class="header">Disney Characters</div>
-        <div class="subtitles">
-            <div class="avatar" />
-            <div class="name">Name</div>
-            <div class="movies">movies</div>
-            <div class="favourite">Favourite</div>
-        </div>
-        <div class="list-row">
+        <ListHeaders />
+        <div class="character-row">
             {#each characters as character}
                 {#if character.films.length > 0}
-                    <div class="row">
-                        <div class="wrapper">
-                            <img src={character.imageUrl} alt="Avatar" class="character-avatar" />
-                        </div>
-                        <div class="character-name">{character.name}</div>
-                        <div class="tv-icon">
-                            {#if character.tvShows.length > 0}
-                                <Tooltip tooltip={character.tvShows}><i class="bi bi-tv" /></Tooltip>
-                            {/if}
-                        </div>
-                        <div class="movies">{character.films.length}</div>
-                        <div class="favourite">
-                            <Favourite {character} />
-                        </div>
-                    </div>
+                    <CharacterRow {character} />
                 {/if}
             {/each}
         </div>
@@ -51,6 +30,7 @@
         justify-content: center;
         align-items: center;
         font-family: 'Lora', serif;
+        animation: fadeIn 1s ease-in-out forwards;
     }
     .characters-list {
         display: grid;
@@ -70,60 +50,32 @@
         padding: 20px;
         color: rgb(255, 255, 255);
     }
-    .subtitles {
-        display: grid;
-        grid-template-columns: 1.5fr 3fr 3fr 1.5fr;
-        text-align: left;
-        align-items: center;
-        text-transform: uppercase;
-        font-size: 1.2rem;
-        color: rgb(119, 119, 119);
-    }
-    .list-row {
+
+    .character-row {
         align-items: start;
         overflow-y: scroll;
     }
-    .list-row::-webkit-scrollbar-track {
+    .character-row::-webkit-scrollbar-track {
         background-color: rgb(25, 25, 25);
     }
-    .list-row::-webkit-scrollbar {
+    .character-row::-webkit-scrollbar {
         width: 3px;
         background-color: rgb(142, 132, 132);
     }
 
-    .list-row::-webkit-scrollbar-thumb {
+    .character-row::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background-color: rgba(172, 172, 172, 0.38);
     }
-    .character-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-    }
-    .row {
-        display: grid;
-        text-align: left;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
-        height: 80px;
-        grid-template-columns: 1.2fr 2.5fr 0.5fr 2.5fr 1.5fr;
-        font-size: 1.1rem;
-        margin: 10px 10px 10px 10px;
-        transition: background-color 0.2s;
-        &:hover {
-            cursor: pointer;
-            background-color: rgb(36, 36, 36);
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
         }
-    }
-    .wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .favourite {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>

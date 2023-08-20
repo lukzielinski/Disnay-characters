@@ -7,7 +7,6 @@ if (!target) {
 
 const app = new App({
     target: target,
-    // hydrate: true
 })
 
 export default app
