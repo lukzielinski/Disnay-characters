@@ -59,7 +59,7 @@
     :global(html)::-webkit-scrollbar {
         width: 6px;
         background-color: rgb(142, 132, 132);
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             width: 0px;
         }
     }

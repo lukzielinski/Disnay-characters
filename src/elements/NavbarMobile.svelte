@@ -3,69 +3,85 @@
     import { push } from 'svelte-spa-router'
 </script>
 
-<nav class="navbar-mobile">
-    <div class="elements-list">
-        <div class="element" on:click={() => push('/mostPopular')}>Most Popular</div>
-        <div class="element" on:click={() => push('/list')}>Character List</div>
-        <div class="element logo"><i class="bi bi-moon-stars-fill" /></div>
-        <div class="element" on:click={() => push('/favourites')}>Your Favourite</div>
-        <div class="element" on:click={() => push('/contact')}>Contact</div>
-    </div>
-</nav>
+<div class="hamburger-menu">
+    <input type="checkbox" class="hamburger" />
+    <ul>
+        <li on:click={() => push('/mostPopular')}>
+            <i class="bi bi-trophy" />
+        </li>
+        <li on:click={() => push('/list')}>
+            <i class="bi bi-card-list" />
+        </li>
+        <li on:click={() => push('/favourites')}>
+            <i class="bi bi-star" />
+        </li>
+        <li on:click={() => push('/contact')}>
+            <i class="bi bi-person-rolodex" />
+        </li>
+    </ul>
+</div>
 
 <style lang="less">
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
-    .navbar-mobile {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        align-items: center;
+    .hamburger-menu {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        z-index: 500;
         height: 50px;
-        padding: 20px;
+        border-radius: 25px;
+        overflow: hidden;
+        background: #232323;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        transition: all 0.5s ease;
         color: white;
-        text-transform: uppercase;
-        z-index: 2;
-        background-color: rgb(25, 25, 25);
-        font-family: 'Roboto Mono', monospace;
+
+        & > * {
+            float: left;
+        }
     }
-    .element {
-        margin: 0 10px;
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
         opacity: 0;
-        animation: fadeIn 1s ease-in-out forwards;
+        z-index: 999;
+        margin: 0;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
 
-        &:hover {
-            cursor: pointer;
+        &:checked ~ ul {
+            width: 250px;
+            background-position: 0px -50px;
         }
     }
 
-    .element:nth-child(1) {
-        animation-delay: 0.2s;
-    }
-    .element:nth-child(2) {
-        animation-delay: 0.3s;
-    }
-    .element:nth-child(3) {
-        animation-delay: 0.5s;
-    }
-    .element:nth-child(4) {
-        animation-delay: 0.7s;
-    }
-    .element:nth-child(5) {
-        animation-delay: 0.9s;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0 0 0 50px;
+        height: 50px;
+        width: 0px;
+        transition: 0.5s width ease;
+        background-image: url('https://i.imgur.com/3d0vJzn.png');
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
     }
 
-    .logo {
-        font-size: 2rem;
-        font-weight: bold;
-    }
+    li {
+        display: inline-block;
+        line-height: 50px;
+        width: 50px;
+        text-align: center;
+        margin: 0;
 
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
+        a {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
         }
     }
 </style>
