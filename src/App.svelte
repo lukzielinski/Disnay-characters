@@ -5,7 +5,9 @@
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
     import List from './views/CharactersList/List.svelte'
+    import Contact from './views/Contact/Contact.svelte'
     import Favourites from './views/Favourites/Favourites.svelte'
+    import HeaderBackground from './views/HeaderBackground.svelte'
     import MostPopular from './views/MostPopular.svelte'
     import Navbar from './views/Navbar.svelte'
 
@@ -35,18 +37,20 @@
 <main>
     <div class="container">
         <Navbar />
-        <!-- <HeaderBackground /> -->
         <div class="main-elements">
             {#if isLoading}
                 <div class="loader">
                     <Loader />
                 </div>
+            {:else if currentPath === '/mostPopular'}
+                <HeaderBackground />
+                <MostPopular {characters} />
             {:else if currentPath === '/favourites'}
                 <Favourites />
-            {:else if currentPath === '/mostPopular'}
-                <MostPopular {characters} />
-            {:else}
+            {:else if currentPath === '/list'}
                 <List {characters} />
+            {:else}
+                <Contact />
             {/if}
         </div>
     </div>
