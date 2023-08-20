@@ -4,6 +4,8 @@
     import Favourite from '../Favourites/Favourite.svelte'
 
     export let characters: Character[] = []
+
+    $: console.log('cyce, characters: ', characters)
 </script>
 
 <div class="characters-list-container">

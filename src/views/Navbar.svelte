@@ -4,11 +4,11 @@
 </script>
 
 <nav class="navbar">
-    <div class="element">ABOUT</div>
+    <div class="element" on:click={() => push('/mostPopular')}>Most Popular</div>
     <div class="element" on:click={() => push('/list')}>LIST</div>
     <div class="element logo"><i class="bi bi-moon-stars-fill" /></div>
     <div class="element" on:click={() => push('/favourites')}>FAVOURITE</div>
-    <div class="element">CONTACT</div>
+    <div class="element" on:click={() => push('/contact')}>CONTACT</div>
 </nav>
 
 <style lang="less">
@@ -20,6 +20,7 @@
         height: 50px;
         padding: 20px;
         color: white;
+        text-transform: uppercase;
         z-index: 2;
         background-color: rgb(25, 25, 25);
         font-family: 'Roboto Mono', monospace;

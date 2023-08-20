@@ -1,27 +1,24 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-    import Router from 'svelte-spa-router'
+    import { location } from 'svelte-spa-router'
     import { wrap } from 'svelte-spa-router/wrap'
     import { Character, getCharacters } from './apiRequests'
     import Loader from './elements/Loader.svelte'
     import List from './views/CharactersList/List.svelte'
     import Favourites from './views/Favourites/Favourites.svelte'
-    import HeaderBackground from './views/HeaderBackground.svelte'
     import MostPopular from './views/MostPopular.svelte'
     import Navbar from './views/Navbar.svelte'
 
     let characters: Character[] = []
+    $: currentPath = $location
 
     const routes = {
         '/favourites': wrap({
             asyncComponent: () => import('./views/Favourites/Favourites.svelte'),
         }),
-        '/list': wrap({
-            asyncComponent: () => import('./views/CharactersList/List.svelte'),
-        }),
     }
-
     let isLoading = true
+
     onMount(async () => {
         try {
             characters = await getCharacters()
@@ -38,19 +35,18 @@
 <main>
     <div class="container">
         <Navbar />
-        <HeaderBackground />
+        <!-- <HeaderBackground /> -->
         <div class="main-elements">
             {#if isLoading}
                 <div class="loader">
                     <Loader />
                 </div>
+            {:else if currentPath === '/favourites'}
+                <Favourites />
+            {:else if currentPath === '/mostPopular'}
+                <MostPopular {characters} />
             {:else}
-                <Router>
-                    <MostPopular {characters} path="/" />
-                    <List {characters} path="/list" />
-                    <Favourites path="/favourites" />
-                    <!-- Dodaj inne komponenty do innych ścieżek -->
-                </Router>
+                <List {characters} />
             {/if}
         </div>
     </div>
