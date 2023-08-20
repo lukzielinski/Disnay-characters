@@ -7,8 +7,8 @@
     import List from './views/CharactersList/List.svelte'
     import Contact from './views/Contact/Contact.svelte'
     import Favourites from './views/Favourites/Favourites.svelte'
-    import HeaderBackground from './views/HeaderBackground.svelte'
-    import MostPopular from './views/MostPopular.svelte'
+    import HeaderBackground from './views/MostPopular/HeaderBackground.svelte'
+    import MostPopular from './views/MostPopular/MostPopular.svelte'
 
     let characters: Character[] = []
 

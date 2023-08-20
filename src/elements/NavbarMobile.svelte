@@ -24,13 +24,13 @@
 <style lang="less">
     .hamburger-menu {
         position: absolute;
-        top: 30px;
-        left: 30px;
+        top: 20px;
+        left: 10px;
         z-index: 500;
         height: 50px;
         border-radius: 25px;
         overflow: hidden;
-        background: #232323;
+        background: rgb(43, 43, 43);
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         transition: all 0.5s ease;
         color: white;

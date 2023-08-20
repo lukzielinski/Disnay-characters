@@ -39,6 +39,10 @@
         font-size: 1.1rem;
         margin: 10px 10px 10px 10px;
         transition: background-color 0.2s;
+        @media (max-width: 900px) {
+            font-size: 0.9rem;
+            grid-template-columns: 1fr 3fr 1fr 2fr 3fr;
+        }
         &:hover {
             cursor: pointer;
             background-color: rgb(36, 36, 36);
@@ -52,5 +56,9 @@
         width: 60px;
         height: 60px;
         border-radius: 50%;
+        @media (max-width: 900px) {
+            width: 30px;
+            height: 30px;
+        }
     }
 </style>

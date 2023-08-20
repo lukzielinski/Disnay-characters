@@ -14,6 +14,9 @@
         text-transform: uppercase;
         font-size: 1.2rem;
         color: rgb(119, 119, 119);
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr 2fr 2fr 3fr;
+        }
     }
     .favourite {
         display: flex;

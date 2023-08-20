@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Character } from 'src/apiRequests'
     import { mostPopularCharacters } from 'src/scripts/countingMovies'
-    import Favourite from './Favourites/Favourite.svelte'
+    import Favourite from '../Favourites/Favourite.svelte'
 
     export let characters: Character[] = []
 
