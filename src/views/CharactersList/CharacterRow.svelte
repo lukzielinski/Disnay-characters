@@ -41,7 +41,7 @@
         transition: background-color 0.2s;
         @media (max-width: 900px) {
             font-size: 0.9rem;
-            grid-template-columns: 1fr 3fr 1fr 2fr 3fr;
+            grid-template-columns: 1.5fr 3.25fr 1fr 2fr 3fr;
         }
         &:hover {
             cursor: pointer;

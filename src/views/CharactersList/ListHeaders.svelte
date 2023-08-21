@@ -17,6 +17,9 @@
         @media (max-width: 900px) {
             grid-template-columns: 1fr 2fr 2fr 3fr;
         }
+        @media (max-width: 600px) {
+            font-size: 1rem;
+        }
     }
     .favourite {
         display: flex;

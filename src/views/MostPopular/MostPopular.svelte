@@ -110,6 +110,7 @@
         border: 1px solid rgba(172, 172, 172, 0.545);
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         animation: fadeIn 1s ease-in-out forwards;
+        user-select: none;
 
         .header {
             position: absolute;

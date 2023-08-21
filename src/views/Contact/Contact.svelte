@@ -37,7 +37,7 @@
     .contact {
         display: grid;
         grid-template-columns: 30% auto;
-        width: 60%;
+        width: 80%;
         height: 50%;
         border: 1px solid rgba(172, 172, 172, 0.545);
         border-radius: 20px;
