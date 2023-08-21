@@ -4,7 +4,11 @@
 <div class="characters-list-container">
     <div class="characters-list">
         <div class="avatar">
-            <img src="../public/lukzielinski.jfif" alt="Avatar" class="character-avatar" />
+            <img
+                src="https://avatars.githubusercontent.com/u/81170600?s=400&u=ab729ba27b26638728e4100a23a9b2a5f988bfdf&v=4"
+                alt="Avatar"
+                class="character-avatar"
+            />
         </div>
         <div class="desriptions">
             <div class="header">Lukas Zielinski</div>
