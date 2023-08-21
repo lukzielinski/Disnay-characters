@@ -30,8 +30,7 @@
         height: 50px;
         border-radius: 25px;
         overflow: hidden;
-        background: rgb(43, 43, 43);
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        background: rgba(43, 43, 43, 0.365);
         transition: all 0.5s ease;
         color: white;
 
@@ -44,10 +43,10 @@
         display: block;
         cursor: pointer;
         opacity: 0;
-        z-index: 999;
+        z-index: 20;
         margin: 0;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         position: absolute;
         top: 0;
         left: 0;
