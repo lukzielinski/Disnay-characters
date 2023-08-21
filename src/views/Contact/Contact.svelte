@@ -1,8 +1,8 @@
 <script lang="ts">
 </script>
 
-<div class="characters-list-container">
-    <div class="characters-list">
+<div class="contact-container">
+    <div class="contact">
         <div class="avatar">
             <img
                 src="https://avatars.githubusercontent.com/u/81170600?s=400&u=ab729ba27b26638728e4100a23a9b2a5f988bfdf&v=4"
@@ -27,16 +27,14 @@
         justify-content: center;
         align-items: center;
     }
-    .characters-list-container {
+    .contact-container {
+        .center-flex();
         height: 80vh;
         color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         font-family: 'Lora', serif;
         animation: fadeIn 1s ease-in-out forwards;
     }
-    .characters-list {
+    .contact {
         display: grid;
         grid-template-columns: 30% auto;
         width: 60%;
