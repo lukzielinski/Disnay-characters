@@ -38,13 +38,13 @@
         display: grid;
         grid-template-columns: 30% auto;
         width: 80%;
-        height: 70%;
+        height: 50%;
         border: 1px solid rgba(172, 172, 172, 0.545);
         border-radius: 20px;
         font-family: 'Roboto Mono', monospace;
         @media (max-width: 900px) {
             width: 90%;
-            height: 50%;
+            height: 70%;
             grid-template-columns: 0% auto;
         }
     }
