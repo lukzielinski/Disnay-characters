@@ -33,6 +33,7 @@
         background: rgba(43, 43, 43, 0.365);
         transition: all 0.5s ease;
         color: white;
+        user-select: none;
 
         & > * {
             float: left;
