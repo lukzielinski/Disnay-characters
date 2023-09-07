@@ -30,8 +30,8 @@
     .contact-container {
         .center-flex();
         height: 80vh;
-        color: white;
-        font-family: 'Lora', serif;
+        // color: white;
+        // font-family: 'Lora', serif;
         animation: fadeIn 1s ease-in-out forwards;
     }
     .contact {
@@ -44,7 +44,7 @@
         font-family: 'Roboto Mono', monospace;
         @media (max-width: 900px) {
             width: 90%;
-            height: 70%;
+            // height: 70%;
             grid-template-columns: 0% auto;
         }
     }
